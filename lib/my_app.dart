@@ -12,7 +12,15 @@ class MyApp extends StatelessWidget {
             seedColor: const Color.fromARGB(255, 255, 33, 74)),
         useMaterial3: true,
       ),
-      home: const MyApp(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text("Recipes app"),
+        ),
+        body: const SafeArea(
+            child: Center(
+          child: Text("NOT READY YET!"),
+        )),
+      ),
     );
   }
 }

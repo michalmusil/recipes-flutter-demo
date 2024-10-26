@@ -7,7 +7,6 @@ part 'create_recipe_step_dto.g.dart';
 @Freezed(fromJson: false, toJson: true)
 class CreateRecipeStepDto with _$CreateRecipeStepDto {
   const factory CreateRecipeStepDto({
-    required String id,
     required String recipeId,
     required String name,
     required String description,
@@ -20,7 +19,6 @@ class CreateRecipeStepDto with _$CreateRecipeStepDto {
     required String recipeId,
   }) {
     return CreateRecipeStepDto(
-      id: recipeStep.id.value,
       recipeId: recipeId,
       name: recipeStep.name,
       description: recipeStep.description,

@@ -16,7 +16,6 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CreateRecipeStepDto {
-  String get id => throw _privateConstructorUsedError;
   String get recipeId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
@@ -40,8 +39,7 @@ abstract class $CreateRecipeStepDtoCopyWith<$Res> {
       _$CreateRecipeStepDtoCopyWithImpl<$Res, CreateRecipeStepDto>;
   @useResult
   $Res call(
-      {String id,
-      String recipeId,
+      {String recipeId,
       String name,
       String description,
       int order,
@@ -63,7 +61,6 @@ class _$CreateRecipeStepDtoCopyWithImpl<$Res, $Val extends CreateRecipeStepDto>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
     Object? recipeId = null,
     Object? name = null,
     Object? description = null,
@@ -71,10 +68,6 @@ class _$CreateRecipeStepDtoCopyWithImpl<$Res, $Val extends CreateRecipeStepDto>
     Object? updatedAt = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
       recipeId: null == recipeId
           ? _value.recipeId
           : recipeId // ignore: cast_nullable_to_non_nullable
@@ -108,8 +101,7 @@ abstract class _$$CreateRecipeStepDtoImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
-      String recipeId,
+      {String recipeId,
       String name,
       String description,
       int order,
@@ -129,7 +121,6 @@ class __$$CreateRecipeStepDtoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
     Object? recipeId = null,
     Object? name = null,
     Object? description = null,
@@ -137,10 +128,6 @@ class __$$CreateRecipeStepDtoImplCopyWithImpl<$Res>
     Object? updatedAt = null,
   }) {
     return _then(_$CreateRecipeStepDtoImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
       recipeId: null == recipeId
           ? _value.recipeId
           : recipeId // ignore: cast_nullable_to_non_nullable
@@ -169,16 +156,13 @@ class __$$CreateRecipeStepDtoImplCopyWithImpl<$Res>
 @JsonSerializable(createFactory: false)
 class _$CreateRecipeStepDtoImpl extends _CreateRecipeStepDto {
   const _$CreateRecipeStepDtoImpl(
-      {required this.id,
-      required this.recipeId,
+      {required this.recipeId,
       required this.name,
       required this.description,
       required this.order,
       required this.updatedAt})
       : super._();
 
-  @override
-  final String id;
   @override
   final String recipeId;
   @override
@@ -192,7 +176,7 @@ class _$CreateRecipeStepDtoImpl extends _CreateRecipeStepDto {
 
   @override
   String toString() {
-    return 'CreateRecipeStepDto(id: $id, recipeId: $recipeId, name: $name, description: $description, order: $order, updatedAt: $updatedAt)';
+    return 'CreateRecipeStepDto(recipeId: $recipeId, name: $name, description: $description, order: $order, updatedAt: $updatedAt)';
   }
 
   @override
@@ -200,7 +184,6 @@ class _$CreateRecipeStepDtoImpl extends _CreateRecipeStepDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CreateRecipeStepDtoImpl &&
-            (identical(other.id, id) || other.id == id) &&
             (identical(other.recipeId, recipeId) ||
                 other.recipeId == recipeId) &&
             (identical(other.name, name) || other.name == name) &&
@@ -213,8 +196,8 @@ class _$CreateRecipeStepDtoImpl extends _CreateRecipeStepDto {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, recipeId, name, description, order, updatedAt);
+  int get hashCode =>
+      Object.hash(runtimeType, recipeId, name, description, order, updatedAt);
 
   /// Create a copy of CreateRecipeStepDto
   /// with the given fields replaced by the non-null parameter values.
@@ -235,16 +218,13 @@ class _$CreateRecipeStepDtoImpl extends _CreateRecipeStepDto {
 
 abstract class _CreateRecipeStepDto extends CreateRecipeStepDto {
   const factory _CreateRecipeStepDto(
-      {required final String id,
-      required final String recipeId,
+      {required final String recipeId,
       required final String name,
       required final String description,
       required final int order,
       required final DateTime updatedAt}) = _$CreateRecipeStepDtoImpl;
   const _CreateRecipeStepDto._() : super._();
 
-  @override
-  String get id;
   @override
   String get recipeId;
   @override
