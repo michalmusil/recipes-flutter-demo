@@ -9,7 +9,6 @@ part of 'create_recipe_step_dto.dart';
 Map<String, dynamic> _$$CreateRecipeStepDtoImplToJson(
         _$CreateRecipeStepDtoImpl instance) =>
     <String, dynamic>{
-      'id': instance.id,
       'recipeId': instance.recipeId,
       'name': instance.name,
       'description': instance.description,

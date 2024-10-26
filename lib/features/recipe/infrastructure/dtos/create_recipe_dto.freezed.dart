@@ -16,7 +16,6 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CreateRecipeDto {
-  String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   int get duration => throw _privateConstructorUsedError;
@@ -40,8 +39,7 @@ abstract class $CreateRecipeDtoCopyWith<$Res> {
       _$CreateRecipeDtoCopyWithImpl<$Res, CreateRecipeDto>;
   @useResult
   $Res call(
-      {String id,
-      String name,
+      {String name,
       String description,
       int duration,
       String cousine,
@@ -63,7 +61,6 @@ class _$CreateRecipeDtoCopyWithImpl<$Res, $Val extends CreateRecipeDto>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
     Object? name = null,
     Object? description = null,
     Object? duration = null,
@@ -71,10 +68,6 @@ class _$CreateRecipeDtoCopyWithImpl<$Res, $Val extends CreateRecipeDto>
     Object? updatedAt = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -108,8 +101,7 @@ abstract class _$$CreateRecipeDtoImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
-      String name,
+      {String name,
       String description,
       int duration,
       String cousine,
@@ -129,7 +121,6 @@ class __$$CreateRecipeDtoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
     Object? name = null,
     Object? description = null,
     Object? duration = null,
@@ -137,10 +128,6 @@ class __$$CreateRecipeDtoImplCopyWithImpl<$Res>
     Object? updatedAt = null,
   }) {
     return _then(_$CreateRecipeDtoImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -169,16 +156,13 @@ class __$$CreateRecipeDtoImplCopyWithImpl<$Res>
 @JsonSerializable(createFactory: false)
 class _$CreateRecipeDtoImpl extends _CreateRecipeDto {
   const _$CreateRecipeDtoImpl(
-      {required this.id,
-      required this.name,
+      {required this.name,
       required this.description,
       required this.duration,
       required this.cousine,
       required this.updatedAt})
       : super._();
 
-  @override
-  final String id;
   @override
   final String name;
   @override
@@ -192,7 +176,7 @@ class _$CreateRecipeDtoImpl extends _CreateRecipeDto {
 
   @override
   String toString() {
-    return 'CreateRecipeDto(id: $id, name: $name, description: $description, duration: $duration, cousine: $cousine, updatedAt: $updatedAt)';
+    return 'CreateRecipeDto(name: $name, description: $description, duration: $duration, cousine: $cousine, updatedAt: $updatedAt)';
   }
 
   @override
@@ -200,7 +184,6 @@ class _$CreateRecipeDtoImpl extends _CreateRecipeDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CreateRecipeDtoImpl &&
-            (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -213,8 +196,8 @@ class _$CreateRecipeDtoImpl extends _CreateRecipeDto {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, name, description, duration, cousine, updatedAt);
+  int get hashCode =>
+      Object.hash(runtimeType, name, description, duration, cousine, updatedAt);
 
   /// Create a copy of CreateRecipeDto
   /// with the given fields replaced by the non-null parameter values.
@@ -235,16 +218,13 @@ class _$CreateRecipeDtoImpl extends _CreateRecipeDto {
 
 abstract class _CreateRecipeDto extends CreateRecipeDto {
   const factory _CreateRecipeDto(
-      {required final String id,
-      required final String name,
+      {required final String name,
       required final String description,
       required final int duration,
       required final String cousine,
       required final DateTime updatedAt}) = _$CreateRecipeDtoImpl;
   const _CreateRecipeDto._() : super._();
 
-  @override
-  String get id;
   @override
   String get name;
   @override
