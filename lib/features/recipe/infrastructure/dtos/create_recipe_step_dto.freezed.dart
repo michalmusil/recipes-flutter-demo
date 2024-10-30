@@ -20,6 +20,7 @@ mixin _$CreateRecipeStepDto {
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   int get order => throw _privateConstructorUsedError;
+  @MillisDatetimeJsonConverter()
   DateTime get updatedAt => throw _privateConstructorUsedError;
 
   /// Serializes this CreateRecipeStepDto to a JSON map.
@@ -43,7 +44,7 @@ abstract class $CreateRecipeStepDtoCopyWith<$Res> {
       String name,
       String description,
       int order,
-      DateTime updatedAt});
+      @MillisDatetimeJsonConverter() DateTime updatedAt});
 }
 
 /// @nodoc
@@ -105,7 +106,7 @@ abstract class _$$CreateRecipeStepDtoImplCopyWith<$Res>
       String name,
       String description,
       int order,
-      DateTime updatedAt});
+      @MillisDatetimeJsonConverter() DateTime updatedAt});
 }
 
 /// @nodoc
@@ -160,7 +161,7 @@ class _$CreateRecipeStepDtoImpl extends _CreateRecipeStepDto {
       required this.name,
       required this.description,
       required this.order,
-      required this.updatedAt})
+      @MillisDatetimeJsonConverter() required this.updatedAt})
       : super._();
 
   @override
@@ -172,6 +173,7 @@ class _$CreateRecipeStepDtoImpl extends _CreateRecipeStepDto {
   @override
   final int order;
   @override
+  @MillisDatetimeJsonConverter()
   final DateTime updatedAt;
 
   @override
@@ -218,11 +220,12 @@ class _$CreateRecipeStepDtoImpl extends _CreateRecipeStepDto {
 
 abstract class _CreateRecipeStepDto extends CreateRecipeStepDto {
   const factory _CreateRecipeStepDto(
-      {required final String recipeId,
-      required final String name,
-      required final String description,
-      required final int order,
-      required final DateTime updatedAt}) = _$CreateRecipeStepDtoImpl;
+          {required final String recipeId,
+          required final String name,
+          required final String description,
+          required final int order,
+          @MillisDatetimeJsonConverter() required final DateTime updatedAt}) =
+      _$CreateRecipeStepDtoImpl;
   const _CreateRecipeStepDto._() : super._();
 
   @override
@@ -234,6 +237,7 @@ abstract class _CreateRecipeStepDto extends CreateRecipeStepDto {
   @override
   int get order;
   @override
+  @MillisDatetimeJsonConverter()
   DateTime get updatedAt;
 
   /// Create a copy of CreateRecipeStepDto

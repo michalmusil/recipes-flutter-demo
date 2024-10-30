@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:recipes_flutter_demo/core/infrastructure/converters/millis_datetime_json_converter.dart';
 import 'package:recipes_flutter_demo/features/recipe/domain/entities/recipe_step.dart';
 
 part 'create_recipe_step_dto.freezed.dart';
@@ -11,7 +12,7 @@ class CreateRecipeStepDto with _$CreateRecipeStepDto {
     required String name,
     required String description,
     required int order,
-    required DateTime updatedAt,
+    @MillisDatetimeJsonConverter() required DateTime updatedAt,
   }) = _CreateRecipeStepDto;
 
   factory CreateRecipeStepDto.fromDomain({

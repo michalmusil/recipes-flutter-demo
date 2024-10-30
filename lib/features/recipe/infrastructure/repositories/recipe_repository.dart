@@ -35,13 +35,21 @@ class RecipeRepository implements IRecipeRepository {
 
       final withStepsFutures = allRecipeDtos.map((recipe) async {
         final recipeUid = IntegerUid(int.parse(recipe.id));
-        final steps =
-            await _remoteRecipeStepsDataSource.getRecipeSteps(recipeUid);
-        return recipe.toDomain(steps.map((step) => step.toDomain()).toList());
+        try {
+          final steps =
+              await _remoteRecipeStepsDataSource.getRecipeSteps(recipeUid);
+          return recipe.toDomain(steps.map((step) => step.toDomain()).toList());
+        } catch (_) {
+          return null;
+        }
       });
 
-      final asDomain = await Future.wait(withStepsFutures);
-      return ResultSuccess(asDomain);
+      final recipesUntreated = await Future.wait(withStepsFutures);
+      final domainRecipes = recipesUntreated
+          .where((recipe) => recipe != null)
+          .map((recipe) => recipe!)
+          .toList();
+      return ResultSuccess(domainRecipes);
     } catch (e) {
       final failure = _getExceptionFailure(e);
       return ResultFailure(failure);
