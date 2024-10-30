@@ -20,6 +20,7 @@ mixin _$CreateRecipeDto {
   String get description => throw _privateConstructorUsedError;
   int get duration => throw _privateConstructorUsedError;
   String get cousine => throw _privateConstructorUsedError;
+  @MillisDatetimeJsonConverter()
   DateTime get updatedAt => throw _privateConstructorUsedError;
 
   /// Serializes this CreateRecipeDto to a JSON map.
@@ -43,7 +44,7 @@ abstract class $CreateRecipeDtoCopyWith<$Res> {
       String description,
       int duration,
       String cousine,
-      DateTime updatedAt});
+      @MillisDatetimeJsonConverter() DateTime updatedAt});
 }
 
 /// @nodoc
@@ -105,7 +106,7 @@ abstract class _$$CreateRecipeDtoImplCopyWith<$Res>
       String description,
       int duration,
       String cousine,
-      DateTime updatedAt});
+      @MillisDatetimeJsonConverter() DateTime updatedAt});
 }
 
 /// @nodoc
@@ -160,7 +161,7 @@ class _$CreateRecipeDtoImpl extends _CreateRecipeDto {
       required this.description,
       required this.duration,
       required this.cousine,
-      required this.updatedAt})
+      @MillisDatetimeJsonConverter() required this.updatedAt})
       : super._();
 
   @override
@@ -172,6 +173,7 @@ class _$CreateRecipeDtoImpl extends _CreateRecipeDto {
   @override
   final String cousine;
   @override
+  @MillisDatetimeJsonConverter()
   final DateTime updatedAt;
 
   @override
@@ -218,11 +220,12 @@ class _$CreateRecipeDtoImpl extends _CreateRecipeDto {
 
 abstract class _CreateRecipeDto extends CreateRecipeDto {
   const factory _CreateRecipeDto(
-      {required final String name,
-      required final String description,
-      required final int duration,
-      required final String cousine,
-      required final DateTime updatedAt}) = _$CreateRecipeDtoImpl;
+          {required final String name,
+          required final String description,
+          required final int duration,
+          required final String cousine,
+          @MillisDatetimeJsonConverter() required final DateTime updatedAt}) =
+      _$CreateRecipeDtoImpl;
   const _CreateRecipeDto._() : super._();
 
   @override
@@ -234,6 +237,7 @@ abstract class _CreateRecipeDto extends CreateRecipeDto {
   @override
   String get cousine;
   @override
+  @MillisDatetimeJsonConverter()
   DateTime get updatedAt;
 
   /// Create a copy of CreateRecipeDto

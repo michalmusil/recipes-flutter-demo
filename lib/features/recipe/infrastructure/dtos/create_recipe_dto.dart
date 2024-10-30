@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:recipes_flutter_demo/core/infrastructure/converters/millis_datetime_json_converter.dart';
 import 'package:recipes_flutter_demo/features/recipe/domain/aggregates/recipe.dart';
 
 part 'create_recipe_dto.freezed.dart';
@@ -11,7 +12,7 @@ class CreateRecipeDto with _$CreateRecipeDto {
     required String description,
     required int duration,
     required String cousine,
-    required DateTime updatedAt,
+    @MillisDatetimeJsonConverter() required DateTime updatedAt,
   }) = _CreateRecipeDto;
 
   factory CreateRecipeDto.fromDomain(Recipe recipe) {

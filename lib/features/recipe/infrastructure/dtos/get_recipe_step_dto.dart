@@ -2,6 +2,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:recipes_flutter_demo/core/domain/types/unique_identifier.dart';
+import 'package:recipes_flutter_demo/core/infrastructure/converters/millis_datetime_json_converter.dart';
 import 'package:recipes_flutter_demo/features/recipe/domain/entities/recipe_step.dart';
 
 part 'get_recipe_step_dto.freezed.dart';
@@ -15,7 +16,7 @@ class GetRecipeStepDto with _$GetRecipeStepDto {
     required String name,
     required String description,
     required int order,
-    required DateTime updatedAt,
+    @MillisDatetimeJsonConverter() required DateTime updatedAt,
   }) = _GetRecipeStepDto;
 
   const GetRecipeStepDto._();

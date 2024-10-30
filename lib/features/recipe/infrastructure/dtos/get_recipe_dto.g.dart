@@ -13,7 +13,8 @@ _$GetRecipeDtoImpl _$$GetRecipeDtoImplFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String,
       duration: (json['duration'] as num).toInt(),
       cousine: json['cousine'] as String,
-      updatedAt: DateTime.parse(json['updatedAt'] as String),
+      updatedAt: const MillisDatetimeJsonConverter()
+          .fromJson((json['updatedAt'] as num).toInt()),
     );
 
 Map<String, dynamic> _$$GetRecipeDtoImplToJson(_$GetRecipeDtoImpl instance) =>
@@ -23,5 +24,6 @@ Map<String, dynamic> _$$GetRecipeDtoImplToJson(_$GetRecipeDtoImpl instance) =>
       'description': instance.description,
       'duration': instance.duration,
       'cousine': instance.cousine,
-      'updatedAt': instance.updatedAt.toIso8601String(),
+      'updatedAt':
+          const MillisDatetimeJsonConverter().toJson(instance.updatedAt),
     };

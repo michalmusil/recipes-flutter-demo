@@ -13,5 +13,6 @@ Map<String, dynamic> _$$CreateRecipeStepDtoImplToJson(
       'name': instance.name,
       'description': instance.description,
       'order': instance.order,
-      'updatedAt': instance.updatedAt.toIso8601String(),
+      'updatedAt':
+          const MillisDatetimeJsonConverter().toJson(instance.updatedAt),
     };

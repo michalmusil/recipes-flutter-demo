@@ -26,6 +26,7 @@ mixin _$GetRecipeStepDto {
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   int get order => throw _privateConstructorUsedError;
+  @MillisDatetimeJsonConverter()
   DateTime get updatedAt => throw _privateConstructorUsedError;
 
   /// Serializes this GetRecipeStepDto to a JSON map.
@@ -50,7 +51,7 @@ abstract class $GetRecipeStepDtoCopyWith<$Res> {
       String name,
       String description,
       int order,
-      DateTime updatedAt});
+      @MillisDatetimeJsonConverter() DateTime updatedAt});
 }
 
 /// @nodoc
@@ -118,7 +119,7 @@ abstract class _$$GetRecipeStepDtoImplCopyWith<$Res>
       String name,
       String description,
       int order,
-      DateTime updatedAt});
+      @MillisDatetimeJsonConverter() DateTime updatedAt});
 }
 
 /// @nodoc
@@ -179,7 +180,7 @@ class _$GetRecipeStepDtoImpl extends _GetRecipeStepDto {
       required this.name,
       required this.description,
       required this.order,
-      required this.updatedAt})
+      @MillisDatetimeJsonConverter() required this.updatedAt})
       : super._();
 
   factory _$GetRecipeStepDtoImpl.fromJson(Map<String, dynamic> json) =>
@@ -197,6 +198,7 @@ class _$GetRecipeStepDtoImpl extends _GetRecipeStepDto {
   @override
   final int order;
   @override
+  @MillisDatetimeJsonConverter()
   final DateTime updatedAt;
 
   @override
@@ -244,12 +246,13 @@ class _$GetRecipeStepDtoImpl extends _GetRecipeStepDto {
 
 abstract class _GetRecipeStepDto extends GetRecipeStepDto {
   const factory _GetRecipeStepDto(
-      {required final String id,
-      @JsonKey(name: "RecipeId") required final String recipeId,
-      required final String name,
-      required final String description,
-      required final int order,
-      required final DateTime updatedAt}) = _$GetRecipeStepDtoImpl;
+          {required final String id,
+          @JsonKey(name: "RecipeId") required final String recipeId,
+          required final String name,
+          required final String description,
+          required final int order,
+          @MillisDatetimeJsonConverter() required final DateTime updatedAt}) =
+      _$GetRecipeStepDtoImpl;
   const _GetRecipeStepDto._() : super._();
 
   factory _GetRecipeStepDto.fromJson(Map<String, dynamic> json) =
@@ -267,6 +270,7 @@ abstract class _GetRecipeStepDto extends GetRecipeStepDto {
   @override
   int get order;
   @override
+  @MillisDatetimeJsonConverter()
   DateTime get updatedAt;
 
   /// Create a copy of GetRecipeStepDto

@@ -14,7 +14,8 @@ _$GetRecipeStepDtoImpl _$$GetRecipeStepDtoImplFromJson(
       name: json['name'] as String,
       description: json['description'] as String,
       order: (json['order'] as num).toInt(),
-      updatedAt: DateTime.parse(json['updatedAt'] as String),
+      updatedAt: const MillisDatetimeJsonConverter()
+          .fromJson((json['updatedAt'] as num).toInt()),
     );
 
 Map<String, dynamic> _$$GetRecipeStepDtoImplToJson(
@@ -25,5 +26,6 @@ Map<String, dynamic> _$$GetRecipeStepDtoImplToJson(
       'name': instance.name,
       'description': instance.description,
       'order': instance.order,
-      'updatedAt': instance.updatedAt.toIso8601String(),
+      'updatedAt':
+          const MillisDatetimeJsonConverter().toJson(instance.updatedAt),
     };

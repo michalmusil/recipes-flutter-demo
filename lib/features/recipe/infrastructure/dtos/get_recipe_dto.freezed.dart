@@ -25,6 +25,7 @@ mixin _$GetRecipeDto {
   String get description => throw _privateConstructorUsedError;
   int get duration => throw _privateConstructorUsedError;
   String get cousine => throw _privateConstructorUsedError;
+  @MillisDatetimeJsonConverter()
   DateTime get updatedAt => throw _privateConstructorUsedError;
 
   /// Serializes this GetRecipeDto to a JSON map.
@@ -49,7 +50,7 @@ abstract class $GetRecipeDtoCopyWith<$Res> {
       String description,
       int duration,
       String cousine,
-      DateTime updatedAt});
+      @MillisDatetimeJsonConverter() DateTime updatedAt});
 }
 
 /// @nodoc
@@ -117,7 +118,7 @@ abstract class _$$GetRecipeDtoImplCopyWith<$Res>
       String description,
       int duration,
       String cousine,
-      DateTime updatedAt});
+      @MillisDatetimeJsonConverter() DateTime updatedAt});
 }
 
 /// @nodoc
@@ -178,7 +179,7 @@ class _$GetRecipeDtoImpl extends _GetRecipeDto {
       required this.description,
       required this.duration,
       required this.cousine,
-      required this.updatedAt})
+      @MillisDatetimeJsonConverter() required this.updatedAt})
       : super._();
 
   factory _$GetRecipeDtoImpl.fromJson(Map<String, dynamic> json) =>
@@ -195,6 +196,7 @@ class _$GetRecipeDtoImpl extends _GetRecipeDto {
   @override
   final String cousine;
   @override
+  @MillisDatetimeJsonConverter()
   final DateTime updatedAt;
 
   @override
@@ -241,12 +243,13 @@ class _$GetRecipeDtoImpl extends _GetRecipeDto {
 
 abstract class _GetRecipeDto extends GetRecipeDto {
   const factory _GetRecipeDto(
-      {required final String id,
-      required final String name,
-      required final String description,
-      required final int duration,
-      required final String cousine,
-      required final DateTime updatedAt}) = _$GetRecipeDtoImpl;
+          {required final String id,
+          required final String name,
+          required final String description,
+          required final int duration,
+          required final String cousine,
+          @MillisDatetimeJsonConverter() required final DateTime updatedAt}) =
+      _$GetRecipeDtoImpl;
   const _GetRecipeDto._() : super._();
 
   factory _GetRecipeDto.fromJson(Map<String, dynamic> json) =
@@ -263,6 +266,7 @@ abstract class _GetRecipeDto extends GetRecipeDto {
   @override
   String get cousine;
   @override
+  @MillisDatetimeJsonConverter()
   DateTime get updatedAt;
 
   /// Create a copy of GetRecipeDto
