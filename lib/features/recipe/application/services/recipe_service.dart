@@ -29,13 +29,17 @@ class RecipeService implements IRecipeService {
     if (!hasNotEmptyName) {
       return const RecipeFailure.nameCantBeEmpty();
     }
-    final hasAtLeastOneStep = recipe.steps.isNotEmpty;
-    if (!hasAtLeastOneStep) {
-      return const RecipeFailure.atLeastOneStepRequired();
-    }
     final durationPossitive = recipe.durationMinutes > 0;
     if (!durationPossitive) {
       return const RecipeFailure.durationMustBePossitive();
+    }
+    final hasNotEmptyCousine = recipe.cousine.isNotEmpty;
+    if (!hasNotEmptyCousine) {
+      return const RecipeFailure.cousineCantBeEmpty();
+    }
+    final hasAtLeastOneStep = recipe.steps.isNotEmpty;
+    if (!hasAtLeastOneStep) {
+      return const RecipeFailure.atLeastOneStepRequired();
     }
     return null;
   }

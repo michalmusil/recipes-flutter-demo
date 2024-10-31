@@ -79,11 +79,11 @@ class RecipeRepository implements IRecipeRepository {
     Recipe recipe,
   ) async {
     try {
-      await _remoteRecipesDataSource.createRecipe(recipe);
+      final recipeId = await _remoteRecipesDataSource.createRecipe(recipe);
       final stepCreationFutures = recipe.steps.map(
         (step) async => await _remoteRecipeStepsDataSource.createRecipeStep(
           step: step,
-          parentRecipe: recipe,
+          parentRecipeId: recipeId,
         ),
       );
       await Future.wait(stepCreationFutures);
