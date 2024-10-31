@@ -116,15 +116,18 @@ class _RecipeListScreenState extends ConsumerState<RecipeListScreen> {
       );
     }
 
-    return ListView.builder(
-      itemCount: recipes.length,
-      itemBuilder: (context, index) {
-        final recipe = recipes[index];
-        return RecipeListTile(
-          recipe: recipe,
-          onTap: () => print("Not ready yet"),
-        );
-      },
+    return RefreshIndicator(
+      onRefresh: () => ref.read(recipeListStateNotifierProvider.notifier).loadRecipes(),
+      child: ListView.builder(
+        itemCount: recipes.length,
+        itemBuilder: (context, index) {
+          final recipe = recipes[index];
+          return RecipeListTile(
+            recipe: recipe,
+            onTap: () => print("Not ready yet"),
+          );
+        },
+      ),
     );
   }
 }
