@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:recipes_flutter_demo/features/recipe/domain/aggregates/recipe.dart';
 import 'package:recipes_flutter_demo/features/recipe/domain/failures/recipe_failure.dart';
 import 'package:recipes_flutter_demo/features/recipe/presentation/providers/recipe_list_state_notifier_provider.dart';
+import 'package:recipes_flutter_demo/features/recipe/presentation/screens/create_recipe_screen.dart';
 import 'package:recipes_flutter_demo/features/recipe/presentation/widgets/recipe_list_tile.dart';
 
 class RecipeListScreen extends ConsumerStatefulWidget {
@@ -48,6 +49,19 @@ class _RecipeListScreenState extends ConsumerState<RecipeListScreen> {
     );
   }
 
+  Future<void> _goToAddRecipe() async {
+    if (!context.mounted) {
+      return;
+    }
+
+    await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const CreateRecipeScreen(),
+      ),
+    );
+    ref.read(recipeListStateNotifierProvider.notifier).loadRecipes();
+  }
+
   @override
   Widget build(BuildContext context) {
     ref.listen(
@@ -63,7 +77,16 @@ class _RecipeListScreenState extends ConsumerState<RecipeListScreen> {
     );
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Recipes")),
+      appBar: AppBar(
+        title: const Text("Recipes"),
+        actions: [
+          IconButton(
+              onPressed: () => _goToAddRecipe(),
+              icon: const Icon(
+                Icons.add_rounded,
+              ))
+        ],
+      ),
       body: SafeArea(
         child: Consumer(
           builder: (context, ref, child) {

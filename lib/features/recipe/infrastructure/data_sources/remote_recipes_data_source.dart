@@ -9,7 +9,7 @@ import 'package:recipes_flutter_demo/features/recipe/infrastructure/dtos/get_rec
 abstract interface class IRemoteRecipesDataSource {
   Future<List<GetRecipeDto>> getRecipes();
   Future<GetRecipeDto> getRecipeById(UniqueIdentifier recipeId);
-  Future<void> createRecipe(Recipe recipe);
+  Future<UniqueIdentifier> createRecipe(Recipe recipe);
 }
 
 class RemoteRecipesDataSource implements IRemoteRecipesDataSource {
@@ -45,13 +45,15 @@ class RemoteRecipesDataSource implements IRemoteRecipesDataSource {
   }
 
   @override
-  Future<void> createRecipe(Recipe recipe) async {
+  Future<UniqueIdentifier> createRecipe(Recipe recipe) async {
     final dto = CreateRecipeDto.fromDomain(recipe);
 
-    await _apiClient.makeUnauthenticatedRequest(
+    var response = await _apiClient.makeUnauthenticatedRequest(
       HttpMethod.post,
       NetworkConstants.recipesApiRecipesEndpoint,
       data: dto.toJson(),
     );
+    final id = int.parse(response.data["id"]);
+    return IntegerUid(id);
   }
 }

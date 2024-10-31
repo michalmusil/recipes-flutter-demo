@@ -2,7 +2,6 @@ import 'package:recipes_flutter_demo/core/domain/types/unique_identifier.dart';
 import 'package:recipes_flutter_demo/core/infrastructure/constants/network_constants.dart';
 import 'package:recipes_flutter_demo/core/infrastructure/network/http_method.dart';
 import 'package:recipes_flutter_demo/core/infrastructure/network/recipes_api_client.dart';
-import 'package:recipes_flutter_demo/features/recipe/domain/aggregates/recipe.dart';
 import 'package:recipes_flutter_demo/features/recipe/domain/entities/recipe_step.dart';
 import 'package:recipes_flutter_demo/features/recipe/infrastructure/dtos/create_recipe_step_dto.dart';
 import 'package:recipes_flutter_demo/features/recipe/infrastructure/dtos/get_recipe_step_dto.dart';
@@ -11,7 +10,7 @@ abstract interface class IRemoteRecipeStepsDataSource {
   Future<List<GetRecipeStepDto>> getRecipeSteps(UniqueIdentifier recipeId);
   Future<void> createRecipeStep({
     required RecipeStep step,
-    required Recipe parentRecipe,
+    required UniqueIdentifier parentRecipeId,
   });
 }
 
@@ -40,16 +39,16 @@ class RemoteRecipeStepsDataSource implements IRemoteRecipeStepsDataSource {
   @override
   Future<void> createRecipeStep({
     required RecipeStep step,
-    required Recipe parentRecipe,
+    required UniqueIdentifier parentRecipeId,
   }) async {
     final dto = CreateRecipeStepDto.fromDomain(
       recipeStep: step,
-      recipeId: parentRecipe.id.value,
+      recipeId: parentRecipeId.value.toString(),
     );
 
     await _apiClient.makeUnauthenticatedRequest(
       HttpMethod.post,
-      "${NetworkConstants.recipesApiRecipesEndpoint}/${parentRecipe.id.value}/Steps",
+      "${NetworkConstants.recipesApiRecipesEndpoint}/${parentRecipeId.value}/Steps",
       data: dto.toJson(),
     );
   }
